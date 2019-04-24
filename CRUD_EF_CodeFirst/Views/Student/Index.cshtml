@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CRUD_EF_CodeFirst.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h1 style="background-color:cadetblue"><font color="Red">&diams; <b>Index</b> &diams;  </font></h1></center>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="background-color:antiquewhite">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.batch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.batch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
